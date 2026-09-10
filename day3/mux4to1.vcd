@@ -1,0 +1,102 @@
+$date
+	Thu Sep 10 14:22:55 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module mux4to1_tb $end
+$var wire 1 ! out $end
+$var reg 1 " in0 $end
+$var reg 1 # in1 $end
+$var reg 1 $ in2 $end
+$var reg 1 % in3 $end
+$var reg 2 & sel [1:0] $end
+$scope module uut $end
+$var wire 1 " in0 $end
+$var wire 1 # in1 $end
+$var wire 1 $ in2 $end
+$var wire 1 % in3 $end
+$var wire 2 ' sel [1:0] $end
+$var reg 1 ! out $end
+$upscope $end
+$scope task check $end
+$var reg 1 ( expected $end
+$var reg 1 ) tin0 $end
+$var reg 1 * tin1 $end
+$var reg 1 + tin2 $end
+$var reg 1 , tin3 $end
+$var reg 2 - tsel [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 -
+0,
+1+
+0*
+1)
+1(
+b0 '
+b0 &
+0%
+1$
+0#
+1"
+1!
+$end
+#10000
+0!
+b1 &
+b1 '
+0(
+b1 -
+#20000
+1!
+b10 &
+b10 '
+1(
+b10 -
+#30000
+0!
+b11 &
+b11 '
+0(
+b11 -
+#40000
+b0 &
+b0 '
+1%
+0$
+1#
+0"
+b0 -
+1,
+0+
+1*
+0)
+#50000
+1!
+b1 &
+b1 '
+1(
+b1 -
+#60000
+0!
+b10 &
+b10 '
+0(
+b10 -
+#70000
+1!
+b11 &
+b11 '
+1(
+b11 -
+#80000
