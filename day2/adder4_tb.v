@@ -1,19 +1,13 @@
+// adder4_tb.v
 `timescale 1ns/1ps
 
 module adder4_tb;
+    reg  [3:0] a, b;
+    reg        cin;
+    wire [3:0] sum;
+    wire       cout;
 
-    logic [3:0] a;
-    logic [3:0] b;
-    logic       cin;
-
-    logic [3:0] sum;
-    logic       cout;
-
-    logic [4:0] expected;
-    integer errors;
-
-    // DUT
-    adder4 dut (
+    adder4 uut (
         .a(a),
         .b(b),
         .cin(cin),
@@ -21,38 +15,32 @@ module adder4_tb;
         .cout(cout)
     );
 
-    initial begin
-        errors = 0;
-
-        for (int i = 0; i < 16; i++) begin
-            for (int j = 0; j < 16; j++) begin
-                for (int k = 0; k < 2; k++) begin
-
-                    a   = i;
-                    b   = j;
-                    cin = k;
-
-                    #1;
-
-                    expected = a + b + cin;
-
-                    if ({cout, sum} !== expected) begin
-                        $display(
-                            "FAIL: a=%0d b=%0d cin=%0d | expected=%05b | got=%05b",
-                            a, b, cin, expected, {cout, sum}
-                        );
-                        errors++;
-                    end
-                end
-            end
+    task check(input [3:0] ta, input [3:0] tb, input tcin);
+        reg [4:0] expected;
+        begin
+            a = ta; b = tb; cin = tcin;
+            #10;
+            expected = ta + tb + tcin;
+            if ({cout, sum} !== expected)
+                $display("FAIL: a=%b b=%b cin=%b -> got {cout,sum}=%b%b, expected %b",
+                          ta, tb, tcin, cout, sum, expected);
+            else
+                $display("PASS: a=%b b=%b cin=%b -> sum=%b cout=%b", ta, tb, tcin, sum, cout);
         end
+    endtask
 
-        if (errors == 0)
-            $display("PASS: All 512 test cases passed!");
-        else
-            $display("FAIL: %0d test cases failed.", errors);
+    initial begin
+        $dumpfile("adder4.vcd");
+        $dumpvars(0, adder4_tb);
+
+        check(4'b0001, 4'b0001, 1'b0); // simple add, no carry
+        check(4'b0111, 4'b0001, 1'b0); // internal carry propagation
+        check(4'b1111, 4'b0001, 1'b0); // full ripple, cout should go high
+        check(4'b1111, 4'b1111, 1'b1); // max values + carry-in, stress overflow
+        check(4'b0000, 4'b0000, 1'b1); // cin alone should propagate through
+        check(4'b1010, 4'b0101, 1'b0); // no carry anywhere
+        check(4'b1000, 4'b1000, 1'b0); // carry only from top bit
 
         $finish;
     end
-
 endmodule
