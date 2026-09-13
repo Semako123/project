@@ -1,0 +1,180 @@
+$date
+	Sun Sep 13 13:38:13 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module top_module_tb $end
+$var wire 1 ! done $end
+$var reg 1 " clk $end
+$var reg 8 # in [7:0] $end
+$var reg 1 $ reset $end
+$scope module uut $end
+$var wire 1 " clk $end
+$var wire 8 % in [7:0] $end
+$var wire 1 $ reset $end
+$var wire 1 ! done $end
+$var parameter 32 & COUNTING $end
+$var parameter 32 ' DONE $end
+$var parameter 32 ( UNKNOWN $end
+$var reg 2 ) count [1:0] $end
+$var reg 2 * next_state [1:0] $end
+$var reg 2 + state [1:0] $end
+$upscope $end
+$scope task send_byte $end
+$var reg 8 , b [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b0 (
+b10 '
+b1 &
+$end
+#0
+$dumpvars
+bx ,
+bx +
+b0 *
+bx )
+b0 %
+1$
+b0 #
+0"
+x!
+$end
+#5000
+b0 )
+0!
+b0 +
+1"
+#10000
+0"
+#15000
+1"
+#16000
+b11010110 #
+b11010110 %
+b11010110 ,
+0$
+#20000
+0"
+#25000
+1"
+#26000
+b1100101 #
+b1100101 %
+b1100101 ,
+#30000
+0"
+#35000
+1"
+#36000
+b10111 #
+b10111 %
+b10111 ,
+#40000
+0"
+#45000
+1"
+#46000
+b0 #
+b0 %
+b0 ,
+#50000
+0"
+#55000
+1"
+#60000
+0"
+#65000
+1"
+#70000
+0"
+#75000
+1"
+#76000
+b11010110 #
+b11010110 %
+b11010110 ,
+#80000
+0"
+#85000
+1"
+#86000
+1$
+#90000
+0"
+#95000
+1"
+#96000
+b1 *
+b10101010 #
+b10101010 %
+b10101010 ,
+0$
+#100000
+0"
+#105000
+b1 *
+b1 +
+1"
+#106000
+b1 *
+b10010110 #
+b10010110 %
+b10010110 ,
+#110000
+0"
+#115000
+b1 *
+b1 )
+1"
+#116000
+b1 *
+b11010110 #
+b11010110 %
+b11010110 ,
+#120000
+0"
+#125000
+b10 *
+b10 )
+1"
+#126000
+b10 *
+b1101011 #
+b1101011 %
+b1101011 ,
+#130000
+0"
+#135000
+b1 *
+b0 )
+1!
+b10 +
+1"
+#136000
+b0 *
+b100001 #
+b100001 %
+b100001 ,
+#140000
+0"
+#145000
+0!
+b0 +
+1"
+#146000
+b0 #
+b0 %
+b0 ,
+#150000
+0"
+#155000
+1"
+#156000
